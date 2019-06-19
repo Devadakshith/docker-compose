@@ -15,7 +15,9 @@ echo  $(docker images | grep -i tomcat | awk '{printf "%s:%s\n",$1,$2}')
     echo "FROM FIRST ECHO $pat_repo_image"
     echo "REPO=====>  $REPOSITORY"
 
-	pat_dev_image=$(echo "$pat_repo_image" | sed "s/latest/$REPOSITORY/")
+	#pat_dev_image=$(echo "$pat_repo_image" | sed "s/latest/$REPOSITORY/")
+	
+	pat_dev_image=$(echo "$pat_repo_image" | awk '{print "$REPOSITORY"$pat_dev_image}')
 	echo "END ==> $pat_dev_image"
 	
 	echo $(docker images | awk '{printf "%s:%s\n",$1,$2}')
