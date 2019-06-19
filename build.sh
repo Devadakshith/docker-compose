@@ -18,6 +18,6 @@ echo  $(docker images | grep -i tomcat | awk '{printf "%s:%s\n",$1,$2}')
     # push images to Docker Registry
     docker tag "$pat_repo_image" "$pat_dev_image"
 	
-	echo $(docker images)
+	echo $(docker images | awk '{printf "%s:%s\n",$1,$2}')
 
   done
