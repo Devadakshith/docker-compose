@@ -16,6 +16,8 @@ echo  $(docker images | grep -i tomcat | awk '{printf "%s:%s\n",$1,$2}')
 	    pat_dev_image=$(echo "$pat_repo_image" | sed "s/$VERSION/latest/")
 	    echo " from pat dev image ======= $pat_dev_image"
     # push images to Docker Registry
-    #docker tag "$pat_repo_image" "$pat_dev_image"
+    docker tag "$pat_repo_image" "$pat_dev_image"
+	
+	echo $(docker images)
 
   done
