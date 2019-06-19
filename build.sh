@@ -20,7 +20,7 @@ echo  $(docker images | grep -i tomcat | awk '{printf "%s:%s\n",$1,$2}')
 	
 	#pat_dev_image=$(echo "$pat_repo_image" | awk '{pat_image_repo=$REPOSITORY$pat_dev_image print "$pat_image_repo"}')
 	
-	REPO_IMAGE=$REPOSITORY$pat_dev_image
+	REPO_IMAGE="$REPOSITORY$pat_dev_image"
 	echo "END ==> $REPO_IMAGE"
 	
 	echo $(docker images | awk '{printf "%s:%s\n",$1,$2}')
