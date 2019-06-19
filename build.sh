@@ -1,6 +1,6 @@
 #!/bin/bash
 VERSION=$(date +%Y-%m-%d)
-REPOSITORY="localhost:5000"
+REPOSITORY="localhost:5000/"
 
 
 echo '****building docker images****'
