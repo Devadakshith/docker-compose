@@ -1,6 +1,6 @@
 #!/bin/bash
 VERSION=$(date +%Y-%m-%d)
-REPOSITORY="localhost:5000/"
+REPOSITORY="localhost:5000"
 
 
 echo '****building docker images****'
@@ -16,12 +16,9 @@ echo  $(docker images | grep -i tomcat | awk '{printf "%s:%s\n",$1,$2}')
     echo "FROM FIRST ECHO $pat_repo_image"
     echo "REPO=====>  $REPOSITORY"
 
-	#pat_dev_image=$(echo "$pat_repo_image" | sed "s/latest/$REPOSITORY/")
-	
-	#pat_dev_image=$(echo "$pat_repo_image" | awk '{pat_image_repo=$REPOSITORY$pat_dev_image print "$pat_image_repo"}')
-	
 	REPO_IMAGE="$REPOSITORY$pat_repo_image"
 	echo "END ==> $REPO_IMAGE"
+	sudo docker tag $pat_repo_image $REPO_IMAGE
 	
 	echo $(docker images | awk '{printf "%s:%s\n",$1,$2}')
 
